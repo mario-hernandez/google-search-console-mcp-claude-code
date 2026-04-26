@@ -5,12 +5,18 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "gsc-seo-mcp"
 version = "0.1.0"
-description = "Model Context Protocol server for Google Search Console with SEO intelligence built-in (quick wins, traffic drops, content decay, cannibalization)."
+description = "Google Search Console MCP for Claude Code & Cursor with built-in SEO intelligence: traffic-drop diagnosis, quick wins, content decay, cannibalization, and ranking alerts. Read-only by default with anti-hallucination provenance metadata on every response."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [{name = "Mario Hernández"}]
-keywords = ["mcp", "search-console", "seo", "google", "analytics"]
+keywords = [
+    "mcp", "mcp-server", "model-context-protocol",
+    "claude", "claude-code", "anthropic", "cursor",
+    "google-search-console", "search-console", "gsc",
+    "seo", "seo-tools", "seo-automation",
+    "fastmcp", "python", "oauth",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
