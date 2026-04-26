@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/mario-hernandez/gsc-seo-mcp/stargazers"><img src="https://img.shields.io/github/stars/mario-hernandez/gsc-seo-mcp?style=flat&color=10b981" alt="Stars"></a>
+  <a href="https://github.com/mario-hernandez/google-search-console-mcp-claude-code/stargazers"><img src="https://img.shields.io/github/stars/mario-hernandez/google-search-console-mcp-claude-code?style=flat&color=10b981" alt="Stars"></a>
   <img src="https://img.shields.io/badge/python-3.11+-3776ab?logo=python&logoColor=white" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/MCP-compatible-7c3aed" alt="MCP compatible">
   <img src="https://img.shields.io/badge/no--telemetry-10b981" alt="No telemetry">
@@ -23,7 +23,7 @@
 
 ```bash
 # 1. Install (Python 3.11+)
-pipx install git+https://github.com/mario-hernandez/gsc-seo-mcp
+pipx install git+https://github.com/mario-hernandez/google-search-console-mcp-claude-code
 
 # 2. Authenticate (one-time, opens browser)
 gcloud auth application-default login \
@@ -114,7 +114,7 @@ There are four serious open-source GSC MCPs — they're all good and you should 
 | [**Suganthan's GSC MCP**](https://github.com/Suganthan-Mohanadasan/Suganthans-GSC-MCP) (TypeScript) | Maximum tool surface (~30 tools including SERP feature analysis, schema audits). Pick if you're a TypeScript shop and want every drilldown. |
 | [**surendranb's gsc-mcp**](https://github.com/surendranb/google-search-console-mcp) (Python) | A 200-line FastMCP starter you can fork and extend. Pick if you want minimal scaffolding. |
 | [**acamolese's mcp**](https://github.com/acamolese/google-search-console-mcp) (Python) | Polished printable HTML reports for clients with Chart.js. Pick if you deliver standalone audits. |
-| **gsc-seo-mcp** (this repo) | **Diagnostic SEO logic in Python with anti-hallucination guardrails baked in.** Pick if your agent reports to clients and you can't afford a hallucinated CTR number. |
+| **This MCP** | **Diagnostic SEO logic in Python with anti-hallucination guardrails baked in.** Pick if your agent reports to clients and you can't afford a hallucinated CTR number. |
 
 This MCP started as a security-audited synthesis of the four above — credit at the bottom of this README.
 

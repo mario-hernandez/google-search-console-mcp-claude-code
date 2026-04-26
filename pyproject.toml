@@ -44,9 +44,9 @@ dev = [
 gsc-seo-mcp = "gsc_seo_mcp.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/mario-hernandez/gsc-seo-mcp"
-Repository = "https://github.com/mario-hernandez/gsc-seo-mcp"
-Issues = "https://github.com/mario-hernandez/gsc-seo-mcp/issues"
+Homepage = "https://github.com/mario-hernandez/google-search-console-mcp-claude-code"
+Repository = "https://github.com/mario-hernandez/google-search-console-mcp-claude-code"
+Issues = "https://github.com/mario-hernandez/google-search-console-mcp-claude-code/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
