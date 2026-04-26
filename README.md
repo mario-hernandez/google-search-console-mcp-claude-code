@@ -39,12 +39,16 @@ Then ask Claude: *"List my Search Console sites and find quick wins for the last
 
 Works with **Claude Code**, **Claude Desktop**, **Cursor**, **Windsurf**, and any other MCP-compatible client.
 
+<p align="center">
+  <img src="docs/diagnoses-vs-dumps.png" alt="Other GSC MCPs return raw spreadsheet rows; this one returns three color-coded diagnostic cards (rising, stable, declining)" width="100%">
+</p>
+
 ## What you actually get
 
 Three things no other GSC MCP gives you out of the box:
 
 - 🩺 **Diagnoses, not data dumps** — `traffic_drops` doesn't return rows; it returns pages classified as `ranking_loss` / `ctr_collapse` / `demand_decline` with the diagnostic numbers attached.
-- 🔍 **Anti-hallucination guardrails** — every response is wrapped with `_meta` provenance (source, site_url, period, fetched_at). Your agent literally cannot make up the numbers when reporting to clients.
+- 🔍 **Anti-hallucination guardrails** — every response is wrapped with `_meta` provenance (source, site_url, period, fetched_at). Your agent literally cannot make up the numbers when reporting to clients. <img src="docs/spot-guardrails.png" alt="Anti-hallucination shield with verification checkmark and timestamp glyph" width="60" align="right">
 - 🛡️ **Read-only by default** — destructive operations (sitemap submission, etc.) require an explicit `GSC_ALLOW_DESTRUCTIVE=true` flag. Safe to point at your production properties.
 
 ## Real example — `traffic_drops` output
@@ -73,6 +77,22 @@ Ask Claude: *"Why did sofrologia.com lose traffic this month?"*
 ```
 
 Claude can now *explain* the drop — page #1 lost 7 ranking positions, page #2 held its position but its CTR collapsed (likely a SERP feature ate the click). Two fundamentally different problems, two different fixes.
+
+<p align="center">
+  <img src="docs/decision-tree.png" alt="traffic_drops classifier — decision tree branching into ranking_loss, ctr_collapse, demand_decline, and mixed terminal categories" width="80%">
+</p>
+
+<p align="center">
+  <sub><i>Every page that lost traffic gets classified into one of four diagnoses based on position delta, CTR ratio, and impressions delta — not a flat ranking by clicks lost.</i></sub>
+</p>
+
+## How it works
+
+<p align="center">
+  <img src="docs/architecture.png" alt="Architecture: Claude/Cursor agent on the left, MCP server in the center with the six diagnostic tools and a provenance shield, Google Search Console index orb on the right" width="100%">
+</p>
+
+The MCP server isn't a thin proxy. The diagnostic logic (six classifier tools) and the `_meta` provenance wrapper live inside the server, so the agent receives pre-classified findings with verifiable source metadata — never raw rows it has to summarize itself.
 
 ## SEO intelligence tools
 
@@ -107,6 +127,10 @@ Claude can now *explain* the drop — page #1 lost 7 ranking positions, page #2 
 </details>
 
 ## Compared to other Google Search Console MCP servers
+
+<p align="center">
+  <img src="docs/competitor-shelf.png" alt="Five tools on a glass shelf — four neutral geometric forms representing other GSC MCPs, one elevated emerald shield with anti-hallucination guarantee" width="100%">
+</p>
 
 There are four serious open-source GSC MCPs — they're all good and you should pick the one that fits your workflow.
 
