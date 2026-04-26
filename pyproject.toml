@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsc-seo-mcp"
+version = "0.1.0"
+description = "Model Context Protocol server for Google Search Console with SEO intelligence built-in (quick wins, traffic drops, content decay, cannibalization)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Mario Hernández"}]
+keywords = ["mcp", "search-console", "seo", "google", "analytics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "google-api-python-client>=2.140.0",
+    "google-auth>=2.30.0",
+    "google-auth-oauthlib>=1.2.0",
+    "jinja2>=3.1.4",
+    "platformdirs>=4.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.12.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+gsc-seo-mcp = "gsc_seo_mcp.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/mario-hernandez/gsc-seo-mcp"
+Repository = "https://github.com/mario-hernandez/gsc-seo-mcp"
+Issues = "https://github.com/mario-hernandez/gsc-seo-mcp/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"gsc_seo_mcp.reports" = ["templates/*.html.j2"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
