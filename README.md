@@ -1,3 +1,5 @@
+<!-- mcp-name: io.github.mario-hernandez/google-search-console-mcp-claude-code -->
+
 # Google Search Console MCP for Claude — SEO intelligence in Python
 
 <p align="center">
